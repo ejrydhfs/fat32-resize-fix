@@ -1,0 +1,21 @@
+--- a/libparted/fs/r/fat/calc.c
++++ b/libparted/fs/r/fat/calc.c
+@@ -295,9 +295,16 @@
+ 	PED_ASSERT (out_cluster_count != NULL);
+ 	PED_ASSERT (out_fat_size != NULL);
+ 
+-/* libparted can only reduce the cluster size at this point */
++/* libparted can only reduce the cluster size at this point.  Start with the
++ * cluster size of the existing file system and work downwards.  The existing
++ * cluster size may be smaller than fat_min_cluster_size(), which is only a
++ * preference when creating a file system: a FAT32 file system smaller than
++ * ~256 MiB must use 512 byte clusters to reach the mandatory 65525 clusters,
++ * and mkfs.fat creates exactly that.  Therefore keep trying down to single
++ * sector clusters, just like fat_calc_sizes() does when creating.
++ */
+ 	for (*out_cluster_sectors = cluster_sectors;
+-	     *out_cluster_sectors >= fat_min_cluster_size (fat_type);
++	     *out_cluster_sectors >= 1;
+ 	     *out_cluster_sectors /= 2) {
+ 		if (calc_sizes (geom->length, align, fat_type, root_dir_sectors,
+ 				*out_cluster_sectors,
