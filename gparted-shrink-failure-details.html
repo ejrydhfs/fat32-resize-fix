@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en-US' lang='en-US'>
+<head>
+<meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
+<title>GParted Details</title>
+<style type='text/css'>
+table {border:0}
+th {text-align:left}
+.number_col {text-align:right}
+</style>
+</head>
+<body>
+<p>GParted 1.8.0</p>
+<p>configuration --enable-libparted-dmraid</p>
+<p>libparted 3.6</p>
+<p>========================================</p>
+<table>
+<tr><th>Device:</th><td>/dev/loop18</td></tr>
+<tr><th>Model:</th><td>Loopback device</td></tr>
+<tr><th>Serial:</th><td></td></tr>
+<tr><th>Sector size:</th><td>512</td></tr>
+<tr><th>Total sectors:</th><td>16777216</td></tr>
+<tr><td colspan='2'>&nbsp;</td></tr>
+<tr><th>Heads:</th><td>255</td></tr>
+<tr><th>Sectors/track:</th><td>2</td></tr>
+<tr><th>Cylinders:</th><td>32896</td></tr>
+<tr><td colspan='2'>&nbsp;</td></tr>
+<tr><th>Partition table:</th><td>msdos</td></tr>
+<tr><td colspan='2'>&nbsp;</td></tr>
+</table>
+<table>
+<tr><th>Partition</th><th>Type</th><th class='number_col'>Start</th><th class='number_col'>End</th><th>Flags</th><th>Partition Name</th><th>File System</th><th>Label</th><th>Mount Point</th></tr>
+<tr><td>/dev/loop18p1</td><td>Primary</td><td class='number_col'>2048</td><td class='number_col'>4196351</td><td>lba</td><td></td><td>fat32</td><td>TEST1G</td><td></td></tr>
+</table>
+<p>========================================</p>
+<table>
+<tr>
+<td colspan='2'>
+<b>Shrink /dev/loop18p1 from 2.00 GiB to 1.00 GiB</b>&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( ERROR )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+calibrate /dev/loop18p1&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>path: /dev/loop18p1 (partition)<br />start: 2048<br />end: 4196351<br />size: 4194304 (2.00 GiB)</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+check file system on /dev/loop18p1 for errors and (if possible) fix them&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<b><i>fsck.fat -a -w -v &apos;/dev/loop18p1&apos;</i></b>&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<tt>fsck.fat 4.2 (2021-01-31)<br />Checking we can access the last sector of the filesystem<br />Boot sector contents:<br />System ID &quot;MSWIN4.1&quot;<br />Media byte 0xf8 (hard disk)<br />       512 bytes per logical sector<br />      4096 bytes per cluster<br />        40 reserved sectors<br />First FAT starts at byte 20480 (sector 40)<br />         2 FATs, 32 bit entries<br />   2095104 bytes per FAT (= 4092 sectors)<br />Root directory start at cluster 261117 (arbitrary size)<br />Data area starts at byte 4210688 (sector 8224)<br />    523260 data clusters (2143272960 bytes)<br />63 sectors/track, 255 heads<br />      2048 hidden sectors<br />   4194304 sectors total<br />There is no label in boot sector, but there is volume label &apos;TEST1G&apos; stored in root directory<br />  Auto-copying volume label from root directory to boot sector.<br />Reclaiming unconnected clusters.<br />Checking free cluster summary.<br />/dev/loop18p1: 5 files, 261627/523260 clusters<br /></tt>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i></i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+shrink file system&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( ERROR )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+using libparted
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+libparted messages&nbsp;&nbsp;&nbsp;&nbsp;( ERROR )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>fat_table_alloc_cluster: no free clusters</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
